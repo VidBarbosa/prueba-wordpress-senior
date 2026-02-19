@@ -56,7 +56,7 @@ Errores:
 Devuelve estadísticas para dashboard.
 
 Permisos:
-- Público para facilitar pruebas técnicas e integración con herramientas como Postman.
+- Solo usuarios con `manage_options`.
 
 Respuesta 200:
 ```json
