@@ -1,174 +1,36 @@
-:root {
-	--erm-bg: #f7f8ff;
-	--erm-surface: #ffffff;
-	--erm-border: #e6e8f4;
-	--erm-text: #344054;
-	--erm-title: #1f2a44;
-	--erm-primary: #7b8cff;
-	--erm-primary-soft: #ecefff;
-	--erm-success: #2e9c7f;
-	--erm-shadow: 0 12px 30px rgba(123, 140, 255, 0.12);
-}
-
 .erm-shortcode {
-	max-width: 1120px;
-	margin: 24px auto;
-	padding: 8px;
-	color: var(--erm-text);
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
-.erm-shell {
-	display: grid;
-	gap: 18px;
-}
-
-.erm-panel {
-	background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
-	border: 1px solid var(--erm-border);
-	border-radius: 18px;
-	padding: 24px;
-	box-shadow: var(--erm-shadow);
-}
-
-.erm-panel h2 {
-	margin: 0;
-	font-size: 1.35rem;
-	color: var(--erm-title);
-}
-
-.erm-subtitle {
-	margin: 8px 0 0;
-	font-size: 0.95rem;
-	color: #667085;
+	max-width: 1100px;
+	margin: 0 auto;
 }
 
 .erm-filters {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-	gap: 12px;
-	margin-top: 18px;
-}
-
-.erm-filters input,
-.erm-filters select,
-.erm-filters button {
-	min-height: 44px;
-	border-radius: 12px;
-	border: 1px solid var(--erm-border);
-	padding: 0 14px;
-	font-size: 0.95rem;
-}
-
-.erm-filters input,
-.erm-filters select {
-	background: #fff;
-	color: var(--erm-text);
-}
-
-.erm-filters button {
-	background: linear-gradient(135deg, #7b8cff 0%, #95b8ff 100%);
-	color: #fff;
-	font-weight: 600;
-	border: none;
-	cursor: pointer;
-}
-
-.erm-filters button:disabled {
-	opacity: 0.75;
-	cursor: not-allowed;
-}
-
-.erm-loading,
-.erm-error,
-.erm-empty {
-	background: var(--erm-surface);
-	border: 1px solid var(--erm-border);
-	border-radius: 12px;
-	padding: 14px;
-}
-
-.erm-error {
-	color: #b42318;
-	background: #fff2f0;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 10px;
+	margin-bottom: 16px;
 }
 
 .erm-results {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 14px;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 16px;
 }
 
 .erm-card {
-	background: var(--erm-surface);
-	border: 1px solid var(--erm-border);
-	border-radius: 16px;
-	padding: 16px;
-	box-shadow: 0 8px 24px rgba(80, 96, 159, 0.08);
+	border: 1px solid #ddd;
+	padding: 14px;
+	border-radius: 6px;
+	background: #fff;
 }
 
-.erm-card h3 {
-	margin: 0 0 12px;
-	font-size: 1.05rem;
-	color: var(--erm-title);
-}
-
-.erm-card p {
-	margin: 0 0 6px;
-	font-size: 0.92rem;
-}
-
-.erm-view-resource {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 10px;
-	background: var(--erm-primary-soft);
-	color: #3346c3;
+.erm-loading {
+	padding: 8px;
 	font-weight: 600;
-	border-radius: 10px;
-	padding: 9px 12px;
-	text-decoration: none;
-}
-
-.erm-card-actions {
-	display: flex;
-	gap: 8px;
-	flex-wrap: wrap;
-}
-
-.erm-open-resource {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 10px;
-	background: #f4f8ff;
-	color: #2f4fbd;
-	font-weight: 600;
-	border-radius: 10px;
-	padding: 9px 12px;
-	text-decoration: none;
-	border: 1px solid #dde5ff;
 }
 
 .erm-pagination {
 	display: flex;
-	flex-wrap: wrap;
 	gap: 8px;
 	justify-content: center;
-}
-
-.erm-pagination button {
-	min-width: 40px;
-	height: 40px;
-	border-radius: 10px;
-	border: 1px solid var(--erm-border);
-	background: #fff;
-	cursor: pointer;
-}
-
-.erm-pagination button.is-active {
-	background: var(--erm-primary);
-	border-color: var(--erm-primary);
-	color: #fff;
+	margin-top: 16px;
 }

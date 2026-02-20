@@ -43,15 +43,6 @@ class ERM_Admin {
 
 		wp_enqueue_style( 'erm-admin-style', ERM_PLUGIN_URL . 'admin/css/admin-styles.css', array(), ERM_VERSION );
 		wp_enqueue_script( 'erm-admin-script', ERM_PLUGIN_URL . 'admin/js/admin-scripts.js', array(), ERM_VERSION, true );
-
-		$month_stats = ERM_Database::get_resources_by_month( 6 );
-		wp_localize_script(
-			'erm-admin-script',
-			'ermAdminData',
-			array(
-				'monthStats' => is_array( $month_stats ) ? $month_stats : array(),
-			)
-		);
 	}
 
 	/**

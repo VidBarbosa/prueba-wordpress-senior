@@ -14,7 +14,6 @@ Plugin de WordPress para gestionar recursos educativos con panel administrativo,
 ## Uso
 - Shortcode frontend: `[recursos_educativos]`
 - Panel administrativo: **Education Resources** en el menú principal.
-- Colección Postman: `docs/postman/ERM.postman_collection.json`.
 
 ## Funcionalidades principales
 - CPT `erm_resource` con metadatos custom.

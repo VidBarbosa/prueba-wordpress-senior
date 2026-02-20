@@ -33,10 +33,6 @@ Respuesta 200:
 ## GET `/resources/{id}`
 Devuelve un recurso específico.
 
-Notas:
-- `link` siempre corresponde al permalink interno del CPT (detalle en WordPress).
-- `url` corresponde al enlace externo opcional del recurso.
-
 Errores:
 - `404 erm_not_found`
 
@@ -60,7 +56,7 @@ Errores:
 Devuelve estadísticas para dashboard.
 
 Permisos:
-- Público para facilitar pruebas técnicas e integración con herramientas como Postman.
+- Solo usuarios con `manage_options`.
 
 Respuesta 200:
 ```json
