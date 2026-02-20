@@ -1,0 +1,184 @@
+{
+  "info": {
+    "name": "ERM - Education Resources Manager",
+    "_postman_id": "2b9fdf2b-9abf-48d0-b0bf-erm-v1",
+    "description": "Colección oficial para probar los endpoints solicitados en la prueba técnica.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Resources",
+      "item": [
+        {
+          "name": "GET /resources",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/wp-json/erm/v1/resources?page=1&per_page=6",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wp-json",
+                "erm",
+                "v1",
+                "resources"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "6"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                  "const payload = pm.response.json();",
+                  "pm.test('Tiene items', function () { pm.expect(payload).to.have.property('items'); });",
+                  "pm.test('items es array', function () { pm.expect(Array.isArray(payload.items)).to.eql(true); });",
+                  "if (payload.items && payload.items.length > 0) { pm.collectionVariables.set('resourceId', payload.items[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET /resources/{id}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/wp-json/erm/v1/resources/{{resourceId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wp-json",
+                "erm",
+                "v1",
+                "resources",
+                "{{resourceId}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                  "const payload = pm.response.json();",
+                  "pm.test('Contiene id', function () { pm.expect(payload).to.have.property('id'); });",
+                  "pm.test('Contiene link', function () { pm.expect(payload).to.have.property('link'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /resources/{id}/track",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action_type\": \"view\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/wp-json/erm/v1/resources/{{resourceId}}/track",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wp-json",
+                "erm",
+                "v1",
+                "resources",
+                "{{resourceId}}",
+                "track"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                  "const payload = pm.response.json();",
+                  "pm.test('success true', function () { pm.expect(payload.success).to.eql(true); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stats",
+      "item": [
+        {
+          "name": "GET /stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/wp-json/erm/v1/stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wp-json",
+                "erm",
+                "v1",
+                "stats"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', function () { pm.response.to.have.status(200); });",
+                  "const payload = pm.response.json();",
+                  "pm.test('Contiene top_resources', function () { pm.expect(payload).to.have.property('top_resources'); });",
+                  "pm.test('Contiene resources_by_month', function () { pm.expect(payload).to.have.property('resources_by_month'); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8882"
+    },
+    {
+      "key": "resourceId",
+      "value": "1"
+    }
+  ]
+}
